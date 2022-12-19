@@ -7,6 +7,7 @@ class InsertData extends Component {
     
     state = {
         showResults: false,
+        hasViability: false,
         productName: '',
         seedsCost: '0',
         fertilizerCost: '0',
@@ -16,6 +17,12 @@ class InsertData extends Component {
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
+        
+        if(parseInt(this.state.revenueExpec) - parseInt(this.state.seedsCost) - parseInt(this.state.fertilizerCost) - parseInt(this.state.spaceCosts) <= 0) {
+            this.setState({hasViability: true})
+        } else {
+            this.setState({hasViability: false})
+        }
     }
 
     handleClick = (event) => {
@@ -24,8 +31,8 @@ class InsertData extends Component {
     }
 
     render() {
-        const { showResults, productName, seedsCost, fertilizerCost, spaceCosts, revenueExpec } = this.state
-        const inputValues = { showResults, productName, seedsCost, fertilizerCost, spaceCosts, revenueExpec }
+        const { showResults, hasViability, productName, seedsCost, fertilizerCost, spaceCosts, revenueExpec } = this.state
+        const inputValues = { showResults, hasViability, productName, seedsCost, fertilizerCost, spaceCosts, revenueExpec }
         
         return (
             <Container>
@@ -90,7 +97,9 @@ class InsertData extends Component {
                     <br></br>
                     <br></br>
                     {this.state.showResults? 
-                    <h1>Gastos de fertilizante + sementes: {parseInt(revenueExpec) - parseInt(seedsCost) - parseInt(fertilizerCost) - parseInt(spaceCosts)}</h1> : null}
+                    this.state.hasViability? <h1>A produção TEM viabilidade econômica, LUCRO de R${parseInt(revenueExpec) - parseInt(seedsCost) - parseInt(fertilizerCost) - parseInt(spaceCosts)}</h1> : <h1>A produção NÃO TEM viabilidade econômica, PREJUÍZO de R${parseInt(revenueExpec) - parseInt(seedsCost) - parseInt(fertilizerCost) - parseInt(spaceCosts)}</h1>
+                    : 
+                    null}
                 </Container>
             </Container>
         )

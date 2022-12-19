@@ -4,7 +4,7 @@ import InsertData from './Pages/InsertData/InsertData';
 import History from './Pages/History/History';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
       <Router>
         <Navbar />
