@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -30,13 +30,10 @@ const Login = () => {
             <main >
                 <section>
                     <div>
-                        <p> FocusApp </p>
-
+                        <h4>Login</h4>
                         <form>
                             <div>
-                                <label htmlFor="email-address">
-                                    Email address
-                                </label>
+                                <label htmlFor="email-address">Email address</label>
                                 <input
                                     id="email-address"
                                     name="email"
@@ -48,35 +45,20 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="password">
-                                    Password
-                                </label>
+                                <label htmlFor="password">Password</label>
                                 <input
                                     id="password"
                                     name="password"
                                     type="password"
                                     required
                                     placeholder="Password"
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
+                                    onChange={(e) => setPassword(e.target.value)}/>
                             </div>
 
                             <div>
-                                <button
-                                    onClick={onLogin}
-                                >
-                                    Login
-                                </button>
+                                <button onClick={onLogin}>Login</button>
                             </div>
                         </form>
-
-                        <p className="text-sm text-white text-center">
-                            No account yet? {' '}
-                            <NavLink to="/signup">
-                                Sign up
-                            </NavLink>
-                        </p>
-
                     </div>
                 </section>
             </main>
