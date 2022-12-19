@@ -12,7 +12,7 @@ const Navbar = () => {
         <Nav>
             <Bars />
             <NavMenu>
-                <NavLink to='/'activeStyle>
+                <NavLink to='/inserir'activeStyle>
                     Calcular viabilidade
                 </NavLink>
                 <NavLink to='/historico'activeStyle>
