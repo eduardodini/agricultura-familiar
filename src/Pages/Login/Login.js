@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Login = () => {
                         <h4>Login</h4>
                         <form>
                             <div>
-                                <label htmlFor="email-address">Email address</label>
+                                <label htmlFor="email-address">E-mail</label>
                                 <input
                                     id="email-address"
                                     name="email"
@@ -45,7 +45,7 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">Senha</label>
                                 <input
                                     id="password"
                                     name="password"
@@ -56,7 +56,7 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <button onClick={onLogin}>Login</button>
+                                <button onClick={onLogin}>Entrar</button>
                             </div>
                         </form>
                     </div>
